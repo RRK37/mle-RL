@@ -19,6 +19,5 @@ RUN pip install numpy pandas
 # The -v flag will print what is happening so you aren't staring at a frozen screen.
 RUN pip install -v -e ./submodules/mle-dojo
 
-# --- FIX END ---
 
 CMD ["python", "first_agent.py"]
