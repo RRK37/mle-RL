@@ -12,7 +12,7 @@ competition:
   # Name of the Kaggle competition (e.g., titanic, house-prices, etc.)
   name: titanic
   # Directory containing competition data
-  # The actual data will be in: data_dir/{competition_name}/data/
+  # The actual data will be in: data_dir/prepared/{competition_name}/data/
   data_dir: ./submodules/mle-dojo/data
 
 # Environment settings
@@ -55,7 +55,8 @@ agent:
 # AIDE-specific settings (used when agent_type: aide)
 aide:
   # Path to task description file (relative to project root)
-  desc_file: ./submodules/mle-dojo/data/titanic/data/public/description.txt
+  # Note: This is auto-generated from competition data_dir, so normally you don't need to set this
+  desc_file: null
   # Or provide task goal directly
   goal: null
   eval: null

@@ -26,7 +26,8 @@ import logging
 from typing import Dict, Any, Tuple
 from pathlib import Path
 
-# Add submodules to path
+# Add patches directory first (for our modified files), then submodules
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'patches'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'submodules', 'mle-dojo'))
 
 # Agent imports
@@ -408,8 +409,10 @@ def main() -> None:
     if args.config:
         # Load configuration from file
         config = load_config(args.config)
-        agent_config = load_agent_config(config['agent_type'])
-        config['agent'].update(agent_config)
+        # Only load and merge agent config if not already present in config file
+        if not config.get('agent') or not config['agent']:
+            agent_config = load_agent_config(config['agent_type'])
+            config['agent'] = agent_config
         # read COMPETITION_NAME from environment variable
         if 'COMPETITION_NAME' in os.environ:
             config['competition']['name'] = os.environ['COMPETITION_NAME']
@@ -423,7 +426,7 @@ def main() -> None:
     execution_timeout = config['env']['execution_timeout']
     config['output_dir'] = Path(config['output_dir']) / config['competition']['name']
     config['output_dir'] = os.path.abspath(config['output_dir'])
-    config['competition']['data_dir'] = Path(config['competition']['data_dir']) / config['competition']['name'] / 'data'
+    config['competition']['data_dir'] = Path(config['competition']['data_dir']) / 'prepared' / config['competition']['name'] / 'data'
     config['competition']['data_dir'] = os.path.abspath(config['competition']['data_dir'])
     
     agent_handlers = {

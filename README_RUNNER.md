@@ -127,8 +127,10 @@ python main.py --config config.yaml
 ### Data Not Found
 Ensure competition data is in the correct location:
 ```
-submodules/mle-dojo/data/{competition_name}/data/
+submodules/mle-dojo/data/prepared/{competition_name}/data/
 ```
+
+If the data is not prepared yet, you may need to prepare it first using the mle-dojo preparation scripts.
 
 ### API Key Issues
 Verify your OpenAI API key is set:
