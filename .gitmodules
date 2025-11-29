@@ -1,3 +1,6 @@
 [submodule "submodules/mle-dojo"]
 	path = submodules/mle-dojo
 	url = https://github.com/MLE-Dojo/MLE-Dojo.git
+[submodule "submodules/mle-bench"]
+	path = submodules/mle-bench
+	url = https://github.com/openai/mle-bench
