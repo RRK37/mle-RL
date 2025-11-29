@@ -29,7 +29,7 @@ from mledojo.utils import get_metric
 
 
 competition_name = "home-data-for-ml-course"
-data_dir = "/home/user/app/mle-RL/submodules/mle-dojo/data/prepared/home-data-for-ml-course/data"
+data_dir = "submodules/mle-dojo/data/prepared/home-data-for-ml-course/data"
 output_dir = "output/home-data-for-ml-course"
 
 # register the competition
