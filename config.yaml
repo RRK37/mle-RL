@@ -1,0 +1,78 @@
+# Configuration for running agents on Kaggle competitions
+# Based on AIDE config with extensions for other agent types
+
+# Agent type: aide, mle, openai, or dummy
+agent_type: aide
+
+# Output directory for agent results and logs
+output_dir: ./output
+
+# Competition settings
+competition:
+  # Name of the Kaggle competition (e.g., titanic, house-prices, etc.)
+  name: titanic
+  # Directory containing competition data
+  # The actual data will be in: data_dir/{competition_name}/data/
+  data_dir: ./submodules/mle-dojo/data
+
+# Environment settings
+env:
+  render_mode: human
+  gpu_device: 0  # Set to null to disable GPU
+  gpu_memory_limit: 32  # GPU memory limit in GB, set to null for no limit
+  execution_timeout: 43200  # Timeout in seconds (12 hours)
+  score_mode: position
+  max_steps: 10  # Maximum number of steps for non-AIDE agents
+
+# Agent-specific configuration will be loaded from the respective agent config files
+# You can override specific agent settings here if needed
+agent:
+  # AIDE agent settings (when agent_type: aide)
+  # These override the default config from submodules/mle-dojo/mledojo/agent/aide/utils/config.yaml
+  steps: 15  # Number of improvement iterations
+  k_fold_validation: 1  # CV folds (1 to disable)
+  expose_prediction: false
+  data_preview: true
+  
+  # Code generation LLM settings
+  code:
+    model_mode: gpt
+    model_name: gpt-4o-mini
+    port: 8314
+    max_completion_tokens: 8192
+    max_prompt_tokens: 30000
+    api_idx: -1
+    api_key: null  # Use environment variable OPENAI_API_KEY
+    temperature: 0.0
+    top_p: 1.0
+  
+  # Tree search hyperparameters
+  search:
+    max_debug_depth: 3
+    debug_prob: 0.5
+    num_drafts: 3
+
+# AIDE-specific settings (used when agent_type: aide)
+aide:
+  # Path to task description file (relative to project root)
+  desc_file: ./submodules/mle-dojo/data/titanic/data/public/description.txt
+  # Or provide task goal directly
+  goal: null
+  eval: null
+  
+  log_dir: ./output/logs
+  workspace_dir: ./output/workspaces
+  
+  # Whether to unzip archives in data directory
+  preprocess_data: true
+  # Whether to copy data to workspace (recommended to prevent accidental modification)
+  copy_data: true
+  
+  # Experiment name (random name generated if null)
+  exp_name: null
+  
+  # Code execution settings
+  exec:
+    timeout: 43200
+    # agent_file_name: runfile.py  # Optional: specify agent file name
+    # format_tb_ipython: false  # Optional: format tracebacks for IPython
