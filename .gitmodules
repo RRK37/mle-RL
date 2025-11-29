@@ -1,0 +1,3 @@
+[submodule "submodules/mle-dojo"]
+	path = submodules/mle-dojo
+	url = https://github.com/MLE-Dojo/MLE-Dojo.git
