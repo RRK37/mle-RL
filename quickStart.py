@@ -25,7 +25,12 @@ from mledojo.utils import get_metric
 
 
 
-
+python main.py \
+  --agent-type aide \
+  --competition-name "home-data-for-ml-course" \
+  --data-dir "ubmodules/mle-dojo/data/prepared/home-data-for-ml-course/data" \
+  --output-dir "output/home-data-for-ml-course" \
+  --max-steps 10
 
 
 competition_name = "home-data-for-ml-course"
