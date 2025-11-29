@@ -1,0 +1,7 @@
+2025-11-29 21:55:22,366 - INFO - Starting execution of /tmp/tmp0ztosuv_.py
+2025-11-29 21:55:22,367 - INFO - Command: python3 /tmp/tmp0ztosuv_.py
+2025-11-29 21:55:22,368 - INFO - GPU MEM=None, Execution timeout=600s, 
+2025-11-29 21:55:24,155 - INFO - STDOUT:
+Saved submission to /app/output/titanic/submission.csv
+
+2025-11-29 21:55:24,156 - INFO - Execution completed in 1.79s with return code 0
