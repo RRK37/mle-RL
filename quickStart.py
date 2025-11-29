@@ -6,5 +6,3 @@ sys.path.insert(0, str(mle_dojo_path))
 from mledojo.gym.competition import CompetitionRegistry, CompInfo
 from mledojo.competitions import get_metric
 from mledojo.gym.env import KaggleEnvironment
-
-
