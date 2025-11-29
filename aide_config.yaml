@@ -26,6 +26,7 @@ exec:
   # agent_file_name: runfile.py
   # format_tb_ipython: False
 
+agent_type: aide
 
 # agent hyperparams
 agent:
