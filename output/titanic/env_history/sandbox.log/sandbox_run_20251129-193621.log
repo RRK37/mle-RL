@@ -1,0 +1,7 @@
+2025-11-29 19:36:21,485 - INFO - Starting execution of /tmp/tmp0r64rjkj.py
+2025-11-29 19:36:21,486 - INFO - Command: python3 /tmp/tmp0r64rjkj.py
+2025-11-29 19:36:21,486 - INFO - GPU MEM=None, Execution timeout=600s, 
+2025-11-29 19:36:21,951 - INFO - STDOUT:
+Saved submission to /app/output/titanic/submission.csv
+
+2025-11-29 19:36:21,952 - INFO - Execution completed in 0.47s with return code 0

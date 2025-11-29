@@ -1,0 +1,7 @@
+2025-11-29 19:33:27,996 - INFO - Starting execution of /tmp/tmppsnug4up.py
+2025-11-29 19:33:27,997 - INFO - Command: python3 /tmp/tmppsnug4up.py
+2025-11-29 19:33:27,997 - INFO - GPU MEM=None, Execution timeout=600s, 
+2025-11-29 19:33:28,483 - INFO - STDOUT:
+Saved submission to /app/output/titanic/submission.csv
+
+2025-11-29 19:33:28,484 - INFO - Execution completed in 0.49s with return code 0

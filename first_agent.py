@@ -53,9 +53,12 @@ print("✅ Environment Ready!")
 # 4. RUN AN EXPERIMENT
 # --------------------
 # A. Get Info about the task
-obs = env.reset()
+obs, info = env.reset()
 print("\n--- 1. TASK INFO ---")
-print(obs['instruction'][:500] + "...") # Print first 500 chars of instructions
+# Request task info explicitly since it's not in reset() observation
+obs, reward = env.step("request_info", info_type="all")
+# The instruction is likely in the feedback or result of this step
+print(f"Info Request Result: {obs}")
 
 # B. Write a 'Hello World' solution
 # This is what your Agent/LLM would generate.
@@ -84,9 +87,9 @@ print(f"Saved submission to {{output_path}}")
 
 print("\n--- 2. EXECUTING AGENT CODE ---")
 # The 'execute_code' step runs the python string INSIDE the Docker container
-obs, reward, done, info = env.step("execute_code", code=agent_code)
+# NOTE: env.step() returns (obs, reward) in this version of mle-dojo, despite type hints saying otherwise
+obs, reward = env.step("execute_code", code=agent_code)
 
 print("\n--- 3. RESULTS ---")
-print(f"Standard Output: {info.get('stdout', '')}")
-print(f"Errors (if any): {info.get('stderr', '')}")
+print(f"Observation: {obs}")
 print(f"🏆 Reward (HumanRank): {reward}")
